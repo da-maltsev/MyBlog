@@ -11,6 +11,7 @@ class Post(BaseModel):
     slug = models.SlugField(max_length=20, unique=True,
                             db_index=True, verbose_name='URL')
     body = models.TextField()
+    image = models.ImageField(upload_to='', blank=True, null=True)
     tags = models.ManyToManyField(Tag, related_name='posts', through='TagPost')
 
 

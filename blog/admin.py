@@ -14,9 +14,11 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['title', 'created_at', 'updated_at', 'tags']
     prepopulated_fields = {'slug': ('title',)}
     inlines = [TagInlineAdmin]
+    ordering = ['created_at']
 
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ['title']
     list_filter = ['title']
+    ordering = ['created_at']
