@@ -8,6 +8,8 @@ class Tag(BaseModel):
 
 
 class Post(BaseModel):
+    slug = models.SlugField(max_length=20, unique=True,
+                            db_index=True, verbose_name='URL')
     body = models.TextField()
     tags = models.ManyToManyField(Tag, related_name='posts', through='TagPost')
 

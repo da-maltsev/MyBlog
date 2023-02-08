@@ -10,8 +10,9 @@ class TagInlineAdmin(admin.TabularInline):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title']
-    list_filter = ['title', 'tags']
+    list_display = ['title', 'slug', 'created_at', 'updated_at']
+    list_filter = ['title', 'created_at', 'updated_at', 'tags']
+    prepopulated_fields = {'slug': ('title',)}
     inlines = [TagInlineAdmin]
 
 
